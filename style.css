@@ -108,6 +108,18 @@ body {
       background: #ff8;
     }
 
+.section-clear {
+      text-align: center;
+      margin-top: 5px;
+      cursor: pointer;
+      color: #ff8;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    .section-clear:hover {
+      color: #ff4d4d;
+    }
+
     @keyframes fadeIn {
       from {
         opacity: 0;

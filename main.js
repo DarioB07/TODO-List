@@ -30,13 +30,22 @@ let tasks = [];
 
     function updateProgress() {
       const completed = tasks.filter(task => task.completed).length;
-      const progress = tasks.length > 0 ? Math.round(((tasks.length - completed) / tasks.length) * 100) 
-      : 0;
-  document.getElementById("progress").textContent = progress + "%";
-}
+      const progress = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;
+      document.getElementById("progress").textContent = progress + "%";
+    }
 
+    function clearTasks() {
+      tasks = [];
+      renderTasks();
+    }
+
+    // Permitir añadir con Enter
     document.getElementById("task-input").addEventListener("keypress", function(event) {
       if (event.key === "Enter") {
         addTask();
       }
     });
+
+    renderTasks();
+
+
