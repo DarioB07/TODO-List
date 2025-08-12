@@ -1,40 +1,41 @@
-const mapaEmojis = {
-        "comer": "🍽️",
-        "correr": "🏃",
-        "pasear mascota": "🐕",
-        "dormir": "😴",
-        "leer": "📚",
-        "trabajar": "💻",
-        "viajar": "✈️",
-        "estudiar": "📖",
-        "jugar": "🎮",
-        "cocinar": "👩‍🍳"
-    };
+let tasks = [];
 
-    function agregarActividad() {
-        const input = document.getElementById("actividad");
-        const texto = input.value.trim().toLowerCase();
-        if (!texto) return;
-
-        const emoji = mapaEmojis[texto] || "❓";
-        const lista = document.getElementById("lista-emojis");
-
-        const li = document.createElement("li");
-        li.innerHTML = `<span>${emoji}</span> <span style="font-size:1rem;color:#555">${texto}</span>`;
-
-        li.addEventListener('click', () => {
-            li.classList.toggle('completada')
-        })
-
-        lista.appendChild(li)
-        
-        input.value = "";
-        input.focus();
+    function renderTasks() {
+      const taskList = document.getElementById("task-list");
+      taskList.innerHTML = "";
+      tasks.forEach((task, index) => {
+        const taskEl = document.createElement("div");
+        taskEl.className = `task ${task.completed ? "completed" : ""}`;
+        taskEl.innerHTML = `
+          <span>${task.text}</span>
+          <div class="checkmark ${task.completed ? "checked" : ""}" onclick="toggleTask(${index})">✓</div>
+        `;
+        taskList.appendChild(taskEl);
+      });
+      updateProgress();
     }
 
-    // Agregar con Enter
-    document.getElementById("actividad").addEventListener("keypress", function(e) {
-        if (e.key === "Enter") {
-            agregarActividad();
-        }
+    function addTask() {
+      const input = document.getElementById("task-input");
+      if (input.value.trim() === "") return;
+      tasks.push({ text: input.value, completed: false });
+      input.value = "";
+      renderTasks();
+    }
+
+    function toggleTask(index) {
+      tasks[index].completed = !tasks[index].completed;
+      renderTasks();
+    }
+
+    function updateProgress() {
+      const completed = tasks.filter(task => task.completed).length;
+      const progress = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;
+      document.getElementById("progress").textContent = progress + "%";
+    }
+
+    document.getElementById("task-input").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        addTask();
+      }
     });

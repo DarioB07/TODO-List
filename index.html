@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TODO List</title>
-<link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Tareas Animada</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-<div class="app-container">
-    <h1>📋 TODO List</h1>
-
-    <div class="input-container">
-        <input type="text" id="actividad" placeholder="Escribe una actividad...">
-        <button onclick="agregarActividad()">+</button>
+  <div class="todo-container">
+    <div class="section-header">
+      <h2>📋 Lista de Tareas</h2>
+      <p>Progreso: <span id="progress">0%</span></p>
     </div>
 
-    <ul id="lista-emojis"></ul>
-</div>
+    <div id="task-list" class="section-list"></div>
 
-<script src="./main.js"></script>
+    <div class="section-add">
+      <input type="text" id="task-input" placeholder="Nueva tarea..." />
+      <button onclick="addTask()">+</button>
+    </div>
+  </div>
 
+  <script src="./main.js"></script>
 </body>
 </html>
