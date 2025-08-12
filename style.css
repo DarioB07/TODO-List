@@ -1,0 +1,104 @@
+ body {
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #483ff7, #8cc3f1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .app-container {
+        background: #ff8;
+        border-radius: 10px;
+        padding: 40px;
+        width: 400px;
+        box-shadow: 0 50px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2rem;
+        color: rgb(0, 0, 0);
+        background: linear-gradient(90deg, #f8c2b5, #ff9068);
+        text-shadow: 0 0 10px #fad9d1, 0 0 20px #a59895, 0 0 30px #ff9068;
+        margin-bottom: 30px;
+    }
+
+    .input-container {
+        display: flex;
+        margin-bottom: 60px;
+    }
+
+    input {
+        flex: 1;
+        padding: 10px;
+        border-radius: 10px 0 0 10px;
+        border: 1px solid #ccc;
+        outline: none;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #6C63FF;
+        color: white;
+        border-radius: 0 10px 10px 0;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background-color: #4bcfff;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content:space-around;
+        padding: 10px;
+        margin-bottom: 20px;
+        background: #f5f5f5;
+        border-radius: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: transform 0.5s;
+    }
+
+    li:hover {
+        transform: scale(1.15);
+        background: #e0e0e0;
+    }
+
+    .completada {
+    text-decoration: line-through;
+    color: rgb(255, 0, 0);
+    opacity: 0.4;
+}
+
+
+@media (min-width: 601px) and (max-width: 900px) {
+        .app-container {
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 1.8rem;
+        }
+        li {
+            font-size: 1.4rem;
+        }
+    }
+
+    /* 💻 Escritorio grande */
+    @media (min-width: 901px) {
+        .app-container {
+            max-width: 500px;
+        }
+    }
