@@ -6,10 +6,8 @@ let tasks = [];
       tasks.forEach((task, index) => {
         const taskEl = document.createElement("div");
         taskEl.className = `task ${task.completed ? "completed" : ""}`;
-        taskEl.innerHTML = `
-          <span>${task.text}</span>
-          <div class="checkmark ${task.completed ? "checked" : ""}" onclick="toggleTask(${index})">✓</div>
-        `;
+        taskEl.innerHTML = `<span>${task.text}</span>
+          <div class="checkmark ${task.completed ? "checked" : ""}" onclick="toggleTask(${index})">✓</div>`;
         taskList.appendChild(taskEl);
       });
       updateProgress();
@@ -30,16 +28,16 @@ let tasks = [];
 
     function updateProgress() {
       const completed = tasks.filter(task => task.completed).length;
-      const progress = tasks.length > 0 ? Math.round((completed / tasks.length) * 100) : 0;
+      const total = tasks.length;
+      const progress = total > 0 ? Math.max(0, 100 - Math.round((completed / total) * 100)) : 100;
       document.getElementById("progress").textContent = progress + "%";
     }
 
-    function clearTasks() {
+    function resetTasks() {
       tasks = [];
       renderTasks();
     }
 
-    // Permitir añadir con Enter
     document.getElementById("task-input").addEventListener("keypress", function(event) {
       if (event.key === "Enter") {
         addTask();
@@ -47,5 +45,4 @@ let tasks = [];
     });
 
     renderTasks();
-
 

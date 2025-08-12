@@ -10,18 +10,16 @@
   <div class="todo-container">
     <div class="section-header">
       <h2>📋 Lista de Tareas</h2>
-      <p>Progreso: <span id="progress">0%</span></p>
+      <p>Progreso: <span id="progress">100%</span></p>
     </div>
-
     <div id="task-list" class="section-list"></div>
-
     <div class="section-add">
       <input type="text" id="task-input" placeholder="Nueva tarea..." />
       <button onclick="addTask()">+</button>
     </div>
-
-     <!-- Botón eliminar -->
-    <div class="section-clear" onclick="clearTasks()">Reset</div>
+    <div style="text-align:center; margin-top:10px;">
+      <button class="button" onclick="resetTasks()">Reset</button>
+    </div>
   </div>
 
   <script src="./main.js"></script>

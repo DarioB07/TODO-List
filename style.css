@@ -108,6 +108,21 @@ body {
       background: #ff8;
     }
 
+.button {
+  text-align: center;
+  background:#ff8;
+  color:rgb(0, 0, 0);
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.button:hover{
+  background-color: #f76b6b;
+  transition: 0.5s;
+}
+
 .section-clear {
       text-align: center;
       margin-top: 5px;
