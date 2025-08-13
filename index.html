@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lista de Tareas Animada</title>
+  <title>TODO List</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  
   <div class="todo-container">
     <div class="section-header">
       <h2>📋 Lista de Tareas</h2>
       <p>Progreso: <span id="progress">100%</span></p>
     </div>
-    <div id="task-list" class="section-list"></div>
+    
+    <div class="left">
+      <div id="task-list" class="section-list"></div>
+    </div>
+
     <div class="section-add">
       <input type="text" id="task-input" placeholder="Nueva tarea..." />
       <button onclick="addTask()">+</button>
@@ -25,6 +30,7 @@
   <script src="./main.js"></script>
 </body>
 </html>
+
 
 
 

@@ -1,112 +1,170 @@
 body {
-      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      letter-spacing: 3px;
-      margin: 0;
-    }
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  letter-spacing: 3px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(10deg, #1a2a6c, #873e3e, #fdbb2d);
+  background-size: 600% 600%;
+  animation: gradientBG 20s ease infinite;
+}
 
-    .todo-container {
-      background: rgba(2, 103, 255, 0.05);
-      padding: 100px;
-      border-radius: 40px;
-      width: 400px;
-      box-shadow: 0 18px 20px rgba(0, 0, 0, 0.3);
-      animation: fadeIn 1s ease-in-out;
-    }
+.todo-container {
+  background: rgba(2, 103, 255, 0.05);
+  padding: 100px;
+  border-radius: 40px;
+  width: 400px;
+  box-shadow: 0 18px 20px rgba(0, 0, 0, 0.3);
+}
 
-    .section-header {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    text-align: center;
-    margin-bottom: 15px;
+.section-header {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .section-list {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    max-height: 200px;
-    overflow-y: auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.08);
-    padding: 10px 15px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .task:hover {
-    transform: translateY(-3px) scale(1.02);
-    background: rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px) scale(1.02);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .task.completed {
-    text-decoration: line-through;
-    opacity: 0.7;
-    color: #ff8;
+  text-decoration: line-through;
+  opacity: 0.7;
+  color: #ff8;
 }
 
 .checkmark {
-    color: #ff8;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: transparent;
-      border: 2px solid #ff8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .checkmark:hover {
-      transform: scale(1.2);
-    }
-    .checkmark.checked {
-      background: #000000;
-    }
+  color: #ff8;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #ff8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
 
-    /* Sección agregar */
-    .section-add {
-      background: rgba(0, 0, 0, 0.1);
-      padding: 10px;
-      border-radius: 12px;
-      display: flex;
-      gap: 10px;
-    }
-    .section-add input {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      outline: none;
-    }
-    .section-add button {
-      padding: 10px 15px;
-      border: none;
-      background: white;
-      color: #000;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .section-add button:hover {
-      background: #ff8;
-    }
+.checkmark:hover {
+  transform: scale(1.2);}.checkmark.checked {
+      background: #000000;
+}
+
+.task-item {
+  color: #000;
+  display: flex;
+  justify-content: center;
+  background: #ff8;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  gap: 6px;
+}
+
+.task-item span {
+  flex: 1;
+  text-align: center;
+}
+
+.edit-btn, .delete-btn {
+  text-align: right;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.delete-btn:hover {
+  background-color: rgb(255, 113, 42);
+}
+
+.edit-btn:hover {
+  background-color: rgb(255, 113, 42);
+}
+
+.task-item .left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.task-item .right {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* espacio entre botones */
+}
+
+/* Sección agregar  */
+
+.section-add {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.section-add input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+.section-add button {
+  padding: 10px 15px;
+  border: none;
+  background: white;
+  color: #000;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;}
+
+
+.section-add button:hover {
+  background: #ff8;
+}
 
 .button {
   text-align: center;
@@ -119,35 +177,37 @@ body {
 }
 
 .button:hover{
-  background-color: #f76b6b;
+  background-color: #f05b5b;
   transition: 0.5s;
 }
 
 .section-clear {
-      text-align: center;
-      margin-top: 5px;
-      cursor: pointer;
-      color: #ff8;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-    .section-clear:hover {
-      color: #ff4d4d;
-    }
+  text-align: center;
+  margin-top: 5px;
+  cursor: pointer;
+  color: #ff8;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.section-clear:hover {
+  color: #ff4d4d;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+  opacity: 1;
+  transform: translateY(0);
+  }
+}
 
 
 /* Responsivo */
+
 @media (max-width: 768px) {
     .container {
         max-width: 90%;
@@ -173,6 +233,7 @@ body {
 }
 
 /* Responsividad para tablets */
+
 @media (min-width: 601px) and (max-width: 900px) {
     .container {
         width: 80%;
@@ -180,8 +241,9 @@ body {
 }
 
 /* Escritorios grandes */
-@media (min-width: 901px) {
-    .container {
-        width: 60%;
-    }
+
+@media (min-width: 901px) { */
+   .container {
+    width: 60%;
+  }
 }
