@@ -81,13 +81,19 @@ function renderTasks() {
 }
 
 function updateProgress() {
-  const completed = tasks.filter(task => task.completed).length;
-  const total = tasks.length;
-  const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
+    const completed = tasks.filter(task => task.completed).length;
+    const total = tasks.length;
+    const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
 
-  document.getElementById("progress").textContent = progress + "%";
-  document.getElementById("progress-fill").style.width = progress + "%";
+    document.getElementById("progress").textContent = progress + "%";
+    const progressFill = document.getElementById("progress-fill");
+    progressFill.style.width = progress + "%";
 }
+
+window.onload = () => {
+    updateProgress(); // Empieza en 0%
+};
+
 
 document.getElementById("task-input").addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
