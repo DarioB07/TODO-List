@@ -1,112 +1,119 @@
-let tasks = [];
-
-function addTask() {
-  const input = document.getElementById("task-input");
-  const taskText = input.value.trim();
-
-  if (taskText === "") return;
-
-  tasks.push({ text: taskText, completed: false });
-  input.value = "";
-  renderTasks();
-  updateProgress();
-}
-
-function toggleTask(index) {
-  tasks[index].completed = !tasks[index].completed;
-  renderTasks();
-  updateProgress();
-}
-
-function editTask(index) {
-  const newText = prompt("Editar tarea:", tasks[index].text);
-  if (newText !== null && newText.trim() !== "") {
-    tasks[index].text = newText.trim();
-    renderTasks();
-    updateProgress();
-  }
-}
-
-function deleteTask(index) {
-  tasks.splice(index, 1);
-  renderTasks();
-  updateProgress();
-}
-
-function renderTasks() {
-  const taskList = document.getElementById("task-list");
-  taskList.innerHTML = "";
-
-  tasks.forEach((task, index) => {
-    const li = document.createElement("li");
-    li.className = "task-item";
-
-    // Checkbox izquierda
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = task.completed;
-    checkbox.onchange = () => toggleTask(index);
-
-    // Texto centrado
-    const span = document.createElement("span");
-    span.textContent = task.text;
-    span.className = "task-text";
-    if (task.completed) {
-      span.style.textDecoration = "line-through";
-      span.style.color = "#888";
+function actualizarProgreso(grupo) {
+      const lista = document.querySelectorAll(`#lista${grupo} .chk`);
+      const total = lista.length;
+      const checked = [...lista].filter(c => c.checked).length;
+      const porcentaje = total > 0 ? Math.round((checked / total) * 100) : 0;
+      document.getElementById(`progress${grupo}`).textContent = porcentaje + "%";
+      document.getElementById(`bar${grupo}`).style.width = porcentaje + "%";
     }
 
-    // Botones derecha
-    const buttonsDiv = document.createElement("div");
-    buttonsDiv.className = "task-buttons";
+    // Agregar tarea
+    function agregarTarea(grupo) {
+      const input = document.getElementById(`nueva${grupo}`);
+      if (input.value.trim() === "") return;
+      
+      const div = document.createElement("div");
+      div.className = "task-card";
+      div.innerHTML = `
+        <div>
+          <input type="checkbox" class="chk"> ${input.value}
+        </div>
+        <div class="actions">
+          <button class="btn btn-sm btn-warning editar">✏️</button>
+          <button class="btn btn-sm btn-danger eliminar">🗑️</button>
+        </div>
+      `;
+      document.getElementById(`lista${grupo}`).appendChild(div);
+      input.value = "";
+      agregarEventos(div, grupo);
+      actualizarProgreso(grupo);
+    }
 
-    const editBtn = document.createElement("button");
-    editBtn.textContent = "✏️";
-    editBtn.className = "edit-btn";
-    editBtn.onclick = () => editTask(index);
+    // Reset tareas completadas
+    function resetTareas(grupo) {
+      const lista = document.querySelectorAll(`#lista${grupo} .chk`);
+      lista.forEach(c => {
+        if (c.checked) c.closest(".task-card").remove();
+      });
+      actualizarProgreso(grupo);
+    }
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "🗑️";
-    deleteBtn.className = "delete-btn";
-    deleteBtn.onclick = () => deleteTask(index);
+    // Eventos de cada tarea
+    function agregarEventos(div, grupo) {
+      div.querySelector(".chk").addEventListener("change", () => actualizarProgreso(grupo));
+      div.querySelector(".eliminar").addEventListener("click", () => {
+        div.remove();
+        actualizarProgreso(grupo);
+      });
+      div.querySelector(".editar").addEventListener("click", () => {
+        const texto = div.querySelector("div").innerText.trim();
+        const nuevo = prompt("Editar tarea:", texto);
+        if (nuevo) {
+          div.querySelector("div").innerHTML = `<input type="checkbox" class="chk"> ${nuevo}`;
+          agregarEventos(div, grupo);
+        }
+      });
+    }
 
-    buttonsDiv.appendChild(editBtn);
-    buttonsDiv.appendChild(deleteBtn);
+function actualizarProgreso(grupo) {
+      const lista = document.querySelectorAll(`#lista${grupo} .chk`);
+      const total = lista.length;
+      const checked = [...lista].filter(c => c.checked).length;
+      const porcentaje = total > 0 ? Math.round((checked / total) * 100) : 0;
+      document.getElementById(`progress${grupo}`).textContent = porcentaje + "%";
+      document.getElementById(`bar${grupo}`).style.width = porcentaje + "%";
+    }
 
-    li.appendChild(checkbox);
-    li.appendChild(span);
-    li.appendChild(buttonsDiv);
-    taskList.appendChild(li);
-  });
-}
+    // Agregar tarea
+    function agregarTarea(grupo) {
+      const input = document.getElementById(`nueva${grupo}`);
+      if (input.value.trim() === "") return;
+      
+      const div = document.createElement("div");
+      div.className = "task-card";
+      div.innerHTML = `
+        <div>
+          <input type="checkbox" class="chk"> ${input.value}
+        </div>
+        <div class="actions">
+          <button class="btn btn-sm btn-warning editar">✏️</button>
+          <button class="btn btn-sm btn-danger eliminar">🗑️</button>
+        </div>
+      `;
+      document.getElementById(`lista${grupo}`).appendChild(div);
+      input.value = "";
+      agregarEventos(div, grupo);
+      actualizarProgreso(grupo);
+    }
 
-function updateProgress() {
-    const completed = tasks.filter(task => task.completed).length;
-    const total = tasks.length;
-    const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
+    // Reset tareas completadas
+    function resetTareas(grupo) {
+      const lista = document.querySelectorAll(`#lista${grupo} .chk`);
+      lista.forEach(c => {
+        if (c.checked) c.closest(".task-card").remove();
+      });
+      actualizarProgreso(grupo);
+    }
 
-    document.getElementById("progress").textContent = progress + "%";
-    const progressFill = document.getElementById("progress-fill");
-    progressFill.style.width = progress + "%";
-}
+    // Eventos de cada tarea
+    function agregarEventos(div, grupo) {
+      div.querySelector(".chk").addEventListener("change", () => actualizarProgreso(grupo));
+      div.querySelector(".eliminar").addEventListener("click", () => {
+        div.remove();
+        actualizarProgreso(grupo);
+      });
+      div.querySelector(".editar").addEventListener("click", () => {
+        const texto = div.querySelector("div").innerText.trim();
+        const nuevo = prompt("Editar tarea:", texto);
+        if (nuevo) {
+          div.querySelector("div").innerHTML = `<input type="checkbox" class="chk"> ${nuevo}`;
+          agregarEventos(div, grupo);
+        }
+      });
+    }
 
-window.onload = () => {
-    updateProgress(); // Empieza en 0%
-};
-
-
-document.getElementById("task-input").addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    addTask();
-  }
-});
-
-function resetTasks() {
-  tasks = [];
-  renderTasks();
-  updateProgress();
-}
-
-
-
-
+    // Inicializar eventos en las tareas ya existentes
+    document.querySelectorAll(".task-card").forEach(div => {
+      const grupo = div.closest(".col-md-6").querySelector("h4").textContent.includes("Casa") ? "Casa" : "Trabajo";
+      agregarEventos(div, grupo);
+    });

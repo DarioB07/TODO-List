@@ -1,180 +1,79 @@
 body {
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: #fff;
+      background: linear-gradient(to bottom, #d38b50, #a96b42);
+      font-family: Arial, sans-serif;
+    }
+    
+    .task-card {
+      background: #fff5aa;
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .task-card input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .task-card .actions {
+      display: flex;
+      gap: 10px;
+    }
+    .reset-btn {
+      background-color: #198754;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+.reset-button {
+  background-color: #0DACF0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+    .progress {
+      height: 20px;
+      border-radius: 12px;
+    }
+
+.btn-primary {
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  color: white;
+  margin: 0px 0px 0px -1px;
+  padding: 6px 12px;
+  background-color: #198754;
+}
+
+.btn-primario {
+  border: none;
+  border-radius: 0px 5px 5px 0px;
+  color: white;
+  margin: 0px 0px 0px -1px;
+  padding: 6px 12px;
+  background-color: #0DACF0;
+}
+
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  letter-spacing: 3px;
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  background: linear-gradient(10deg, #1a2a6c, #873e3e, #fdbb2d);
+  background: linear-gradient(0deg, #ffffff, #d56262, #000000);
   background-size: 600% 600%;
 }
 
 .progress-container {
     width: 100%;
     height: 12px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 6px;
     overflow: hidden;
 }
 
-#progress-fill {
-    height: 100%;
-    width: 0%;
-    background: red;
-    transition: width 0.4s ease, background-color 0.4s ease;
-}
-
-
-.todo-container {
-  background: rgba(2, 103, 255, 0.05);
-  padding: 100px;
-  border-radius: 40px;
-  width: 400px;
-  box-shadow: 0 18px 20px rgba(0, 0, 0, 0.3);
-}
-
-.section-header {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  text-align: center;
-  margin-bottom: 15px;
-  letter-spacing: 1px;
-  font-size: 19px;
-}
-
-.section-list {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-
-.task-item {
-  color: #000;
-  display: flex;
-  justify-content: center;
-  background: #ff8;
-  padding: 8px;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  gap: 6px;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.task-item:hover {
-  cursor: pointer;
-  transform: scale(1);
-  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.3);
-}
-
-.task-item span {
-  flex: 1;
-  text-align: center;
-}
-
-.edit-btn, .delete-btn {
-  text-align: right;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  border-radius: 8px;
-}
-
-.delete-btn:hover {
-  background-color: rgb(255, 113, 42);
-}
-
-.edit-btn:hover {
-  background-color: rgb(255, 113, 42);
-}
-
-.task-item .left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.task-item .right {
-  display: flex;
-  align-items: center;
-  gap: 6px; /* espacio entre botones */
-}
-
 /* Sección agregar  */
-
-.section-add {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  border-radius: 12px;
-  display: flex;
-  gap: 10px;
-}
-
-.section-add input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-}
-
-.section-add button {
-  padding: 10px 15px;
-  border: none;
-  background: white;
-  color: #000;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s ease;}
-
-
-.section-add button:hover {
-  background: #ff8;
-}
-
-.button {
-  text-align: center;
-  background:#ff8;
-  color:rgb(0, 0, 0);
-  border:none;
-  padding:8px 12px;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-.button:hover{
-  background-color: #f05b5b;
-  transition: 0.5s;
-}
-
-.section-clear {
-  text-align: center;
-  margin-top: 5px;
-  cursor: pointer;
-  color: #ff8;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.section-clear:hover {
-  color: #ff4d4d;
-}
 
 @keyframes fadeIn {
   from {
