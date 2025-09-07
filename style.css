@@ -1,43 +1,43 @@
 body {
-      background: linear-gradient(to bottom, #d38b50, #a96b42);
-      font-family: Arial, sans-serif;
-    }
-    
-    .task-card {
-      background: #fff5aa;
-      border-radius: 12px;
-      padding: 10px;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .task-card input[type="checkbox"] {
-      margin-right: 10px;
-    }
-    .task-card .actions {
-      display: flex;
-      gap: 10px;
-    }
-    .reset-btn {
-      background-color: #198754;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
+  background: linear-gradient(to bottom, #d38b50, #a96b42);
+  font-family: Arial, sans-serif;
+}
 
-.reset-button {
-  background-color: #0DACF0;
+.task-card {
+  background: #fff5aa;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.task-card input[type="checkbox"] {
+  margin-right: 10px;
+}
+.task-card .actions {
+  display: flex;
+  gap: 10px;
+}
+.reset-btn {
+  background-color: #198754;
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
   margin-top: 10px;
 }
-    .progress {
-      height: 20px;
-      border-radius: 12px;
-    }
+
+.reset-button {
+  background-color: #0dacf0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.progress {
+  height: 20px;
+  border-radius: 12px;
+}
 
 .btn-primary {
   border: none;
@@ -54,23 +54,23 @@ body {
   color: white;
   margin: 0px 0px 0px -1px;
   padding: 6px 12px;
-  background-color: #0DACF0;
+  background-color: #0dacf0;
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(0deg, #ffffff, #d56262, #000000);
+  background: linear-gradient(0deg, #ffffff, #e4b5b5, #ddd4d4);
   background-size: 600% 600%;
 }
 
 .progress-container {
-    width: 100%;
-    height: 12px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 6px;
-    overflow: hidden;
+  width: 100%;
+  height: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 /* Sección agregar  */
@@ -81,50 +81,49 @@ body {
     transform: translateY(10px);
   }
   to {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-
 
 /* Responsivo */
 
 @media (max-width: 768px) {
-    .container {
-        max-width: 90%;
-        padding: 15px;
-    }
-    .task {
-        font-size: 0.9em;
-    }
+  .container {
+    max-width: 90%;
+    padding: 15px;
+  }
+  .task {
+    font-size: 0.9em;
+  }
 }
 
 @media (max-width: 600px) {
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
-    .task {
-        font-size: 0.9rem;
-        padding: 8px;
-    }
-    .task span {
-        font-size: 1.2rem;
-    }
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+  .task {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+  .task span {
+    font-size: 1.2rem;
+  }
 }
 
 /* Responsividad para tablets */
 
 @media (min-width: 601px) and (max-width: 900px) {
-    .container {
-        width: 80%;
-    }
+  .container {
+    width: 80%;
+  }
 }
 
 /* Escritorios grandes */
 
-@media (min-width: 901px) { */
-   .container {
+@media (min-width: 901px) {
+  */ .container {
     width: 60%;
   }
 }
